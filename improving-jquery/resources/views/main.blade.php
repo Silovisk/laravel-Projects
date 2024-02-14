@@ -3,11 +3,11 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Personal Canabinóide | Admin</title>
+    <title>Silovisk Projetos | Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="Personal Canabinóide | Área administrativa">
+    <meta name="title" content="Silovisk Projetos | Área administrativa">
     <meta name="author" content="Silascou">
-    <meta name="description" content="Gerencie tudo no Personal Canabinóide">
+    <meta name="description" content="Gerencie tudo no Silovisk Projetos">
     <link rel="icon" type="image/x-icon" href="{{ asset('/favicon.ico') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/assets/css/adminlte.css">
     @if (isset($styles) && count($styles) > 0)
         @foreach ($styles as $style)
-        <link rel="stylesheet" href="{{$style}}">
+            <link rel="stylesheet" href="{{ $style }}">
         @endforeach
     @endif
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -26,12 +26,23 @@
 <!--end::Head-->
 
 <!--begin::Body-->
+
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary">
     <!--begin::App Wrapper-->
     <div class="app-wrapper">
         <!--begin::Header-->
-        {{-- <nav class="app-header navbar navbar-expand bg-body">
-            <!--begin::Container-->
+        <nav class="app-header navbar navbar-expand bg-dark">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin">
+                            <i class="text-danger bi bi-gear"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        {{--  <!--begin::Container-->
             <div class="container-fluid">
                 <!--begin::Start Navbar Links-->
                 <ul class="navbar-nav">
@@ -90,7 +101,7 @@
                 <!--begin::Brand Link-->
                 <a href="/admin" class="brand-link">
                     <!--begin::Brand Image-->
-                    <img src="/assets/img/full-logo.png" alt="Logo do Personal Canabinóide" class="brand-image w-100">
+                    <img src="/assets/img/full-logo.png" alt="Logo do Silovisk Projetos" class="brand-image w-100">
                     <!--end::Brand Image-->
                 </a>
                 <!--end::Brand Link-->
@@ -107,7 +118,7 @@
                     <!--end::Sidebar Menu-->
                 </nav>
             </div> --}}
-            <!--end::Sidebar Wrapper-->
+        <!--end::Sidebar Wrapper-->
         </aside>
         <!--end::Sidebar-->
         <!--begin::App Main-->
