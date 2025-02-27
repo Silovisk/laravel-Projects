@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
-use GuzzleHttp\Client;
 use Illuminate\Database\Seeder;
 
 class CategorySeeder extends Seeder
@@ -13,21 +12,31 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        $client = new Client(); // GuzzleHttp\Client
-        $url = 'https://api.themoviedb.org/3/genre/movie/list?language=pt';
+        $genres = [
+            ['id' => 28, 'name' => 'Ação'],
+            ['id' => 12, 'name' => 'Aventura'],
+            ['id' => 16, 'name' => 'Animação'],
+            ['id' => 35, 'name' => 'Comédia'],
+            ['id' => 80, 'name' => 'Crime'],
+            ['id' => 99, 'name' => 'Documentário'],
+            ['id' => 18, 'name' => 'Drama'],
+            ['id' => 10751, 'name' => 'Família'],
+            ['id' => 14, 'name' => 'Fantasia'],
+            ['id' => 36, 'name' => 'História'],
+            ['id' => 27, 'name' => 'Terror'],
+            ['id' => 10402, 'name' => 'Música'],
+            ['id' => 9648, 'name' => 'Mistério'],
+            ['id' => 10749, 'name' => 'Romance'],
+            ['id' => 878, 'name' => 'Ficção científica'],
+            ['id' => 10770, 'name' => 'Cinema TV'],
+            ['id' => 53, 'name' => 'Thriller'],
+            ['id' => 10752, 'name' => 'Guerra'],
+            ['id' => 37, 'name' => 'Faroeste'],
+        ];
 
-        $response = $client->request('GET', $url, [
-            'headers' => [
-                'Authorization' => 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZDI3NTg5ZjgyODZmOGQ3Njk0MTEzNzQ1NWI2OGM5NCIsInN1YiI6IjY1NTEyMjcyZDRmZTA0MDExYjhmMzNiYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OXResP3WbpHGcl_gyBHBZUaa1BhUSS9TfJeGpM08Mz8',
-                'accept' => 'application/json',
-            ],
-        ]);
-
-        $genres = json_decode($response->getBody());
-
-        foreach ($genres->genres as $genre) {
+        foreach ($genres as $genre) {
             Category::create([
-                'name' => $genre->name,
+                'name' => $genre['name'],
                 'description' => '',
             ]);
         }
